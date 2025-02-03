@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import componentsSub from "./componentsSub";
 
 export default
 function IconButton(props) {
@@ -8,7 +7,7 @@ function IconButton(props) {
     Component, className = "", title = "",
     onClick, disabled, iconClassName = "",
   } = props;
-  const { Tooltip, IconButton: BaseIconButton } = componentsSub.use();
+  const { Tooltip, IconButton: BaseIconButton } = globalThis.typesComponents;
 
   return (<Tooltip title={title}>
     <span>

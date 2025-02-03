@@ -7,7 +7,6 @@ export { default as TooltipCircle } from "./TooltipCircle";
 export { default as Table } from "./Table";
 export { default as List } from "./List";
 export { default as Mini } from "./Mini";
-export { default as componentsSub } from "./componentsSub";
 export * from "./Mini";
 export { default as IconButton } from "./IconButton";
 export { default as defaultCast } from "./defaultCast";

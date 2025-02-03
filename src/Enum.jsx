@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import componentsSub from "./componentsSub";
 
 export function Enum(props) {
   const { values, enumKey, tooltip, meta } = props;
   const { icon, title } = values[enumKey] ?? meta?.na;
-  const { Tooltip, [icon + "Icon"]: Icon } = componentsSub.use();
+
+  const { Tooltip, [icon + "Icon"]: Icon } = globalThis.typesComponents;
   const iconEl = Icon ? <Icon /> : icon;
 
   return <Tooltip title={title ?? tooltip ?? meta?.naTooltip}>{iconEl}</Tooltip>;
