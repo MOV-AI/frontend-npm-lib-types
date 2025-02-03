@@ -1,6 +1,6 @@
 {
   "name": "@mov-ai/mov-fe-lib-types",
-  "version": "0.4.19-1",
+  "version": "0.5.0-0",
   "description": "Automate table and filter creation and other things and have your data models in the client",
   "main": "cjs/types.js",
   "browser": "web/types.js",
@@ -16,7 +16,6 @@
     }
   },
   "external": {
-    "@mov-ai/mov-fe-lib-sub": "global ttySub",
     "lodash": "global _",
     "prop-types": "global PropTypes",
     "react": "global React"
@@ -53,14 +52,12 @@
   ],
   "devDependencies": {
     "@mov-ai/mov-fe-lib-scripts": "^0.6.8-1",
-    "@mov-ai/mov-fe-lib-sub": "^2.3.2-1",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "peerDependencies": {
-    "@mov-ai/mov-fe-lib-sub": "^2.3.2-1",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
     "react": ">= 16.0.0 < 20.0.0",

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import componentsSub from "./componentsSub";
 import defaultCast from "./defaultCast";
 
 export default function MaybeTip(props) {
@@ -12,7 +11,7 @@ export default function MaybeTip(props) {
     <div key={idx}>{line}</div>
   )) : tooltip : null;
 
-  const { Tooltip } = componentsSub.use();
+  const { Tooltip } = globalThis.typesComponents;
 
   return tooltipEl ? (
     <Tooltip title={tooltipEl} classes={{ tooltip: rootClass }}>

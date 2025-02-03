@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import componentsSub from "../componentsSub";
 import MyPropTypes from "../prop-types";
 import { defaultMeta } from "../data-types";
 import Circle from "./Circle";
@@ -9,7 +8,7 @@ import defaultCast from "../defaultCast";
 export default function TooltipCircle(props) {
   const { value = defaultMeta.na, style, size = 20, cast } = props;
   const tooltipCircleClass = cast?.TooltipCircle ?? defaultCast.TooltipCircle;
-  const { Tooltip } = componentsSub.use();
+  const { Tooltip } = globalThis.typesComponents;
 
   return (<Tooltip title={value.title}>
     <span className={tooltipCircleClass} style={style}>

@@ -5,7 +5,6 @@ import MaybeTip from "./MaybeTip";
 import useFilters from "./useFilters";
 import IconButton from "./IconButton";
 import defaultCast from "./defaultCast";
-import componentsSub from "./componentsSub";
 
 export function titleCamelCase(camelCase) {
   const almost = camelCase.replace(/([A-Z])/g, function (g) { return " " + g; });
@@ -26,7 +25,7 @@ function Details(props) {
   const detailsColumnClass = cast.Details?.column ?? defaultCast.Details.column;
   const tooltipRootClass = cast.Tooltip?.root ?? defaultCast.Tooltip.root;
   const labelTitleClass = cast.Label?.title ?? defaultCast.Label.title;
-  const { Table, TableBody, TableRow, TableCell } = componentsSub.use();
+  const { Table, TableBody, TableRow, TableCell } = globalThis.typesComponents;
 
   const maybeTableMap = {
     [true]: (field, value, pType, subType, meta) => {
@@ -233,7 +232,7 @@ DetailsPanel.propTypes = {
 
 function Line(props) {
   const { data, index, type, className, columns, cast } = props;
-  const { TableRow, TableCell } = componentsSub.use();
+  const { TableRow, TableCell } = globalThis.typesComponents;
   const tdClass = (cast.Table?.td ?? defaultCast.Table.td) + " " + className;
 
   const columnsEl = columns.map(key => (
@@ -256,7 +255,7 @@ Line.propTypes = {
 function ExpandLine(props) {
   const { data, index, type, className, icons, detailPanel, columns, cast } = props;
   const [ open, setOpen ] = useState(false);
-  const { TableRow, TableCell } = componentsSub.use();
+  const { TableRow, TableCell } = globalThis.typesComponents;
   const tdClass = (cast.Table?.td ?? defaultCast.Table.td) + " " + className;
   const rotateClass = cast.rotate ?? defaultCast.rotate;
 
@@ -329,7 +328,7 @@ export default function Table(props) {
   const {
     Table, TableBody, TableContainer,
     TableHead, TableRow, Paper,
-  } = componentsSub.use();
+  } = globalThis.typesComponents;
   const { Toolbar = DefaultToolbar } = components;
   const { filtersEl, filteredData } = useFilters({ data, type, config: filters, global, cast });
   const upMeta = {

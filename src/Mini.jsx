@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import componentsSub from "./componentsSub";
 
 export default
 function Mini(props) {
@@ -57,7 +56,7 @@ export function iconButton(state, props) {
         state: outerState,
         ...rest
       } = props;
-      const { IconButton, Tooltip } = componentsSub.use();
+      const { IconButton, Tooltip } = globalThis.typesComponents;
 
       return (<Tooltip title={typeof title === "string" ? title : title[state]}>
         <span>

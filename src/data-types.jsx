@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import componentsSub from "./componentsSub";
 import { mapCount } from "./utils";
 import { Percent as PercentComponent } from "./Percent";
 import { Enum as EnumComponent } from "./Enum";
@@ -102,13 +101,13 @@ TextFilter.propTypes = {
 
 function MetaTooltip(props) {
   const { meta } = props;
-  const { Tooltip } = componentsSub.use();
+  const { Tooltip } = globalThis.typesComponents;
   return <Tooltip title={meta.naTooltip}>{meta.na.title}</Tooltip>;
 }
 
 function MetaButton(props) {
   const { onClick, children } = props;
-  const { Button } = componentsSub.use();
+  const { Button } = globalThis.typesComponents;
 
   return (<Button onClick={onClick}>
     { children }
@@ -120,7 +119,7 @@ function Filter(props) {
   const { chipKey, label, active, value, cast, ...rest } = props;
   const activeClass = cast?.Enum?.Filter?.active ?? defaultCast.Enum.Filter.active;
   const inactiveClass = cast?.Enum?.Filter?.inactive ?? defaultCast.Enum.Filter.inactive;
-  const { Chip } = componentsSub.use();
+  const { Chip } = globalThis.typesComponents;
 
   return (<Chip
     data-testid={"chip-" + chipKey}
@@ -420,7 +419,7 @@ export class Bool extends Enum {
 
     const { type, superType, value, onChange, dataKey, data } = props;
     const numbers = mapCount(superType, data, dataKey);
-    const { TextField, MenuItem } = componentsSub.use();
+    const { TextField, MenuItem } = globalThis.typesComponents;
 
     const valuesMap = {
       0: {
@@ -483,7 +482,7 @@ Bool.extend = function extendBool(map, options = {}) {
 function InnerCheckbox(props) {
   const { name, index, value } = props;
   const [ checked, setChecked ] = useState(value);
-  const { Checkbox: CheckboxComponent } = componentsSub.use();
+  const { Checkbox: CheckboxComponent } = globalThis.typesComponents;
 
   useEffect(() => {
     setChecked(value);
@@ -808,7 +807,7 @@ export class DateTime extends Str {
   Filter(props) {
     const { dataKey, type, value, onChange, cast } = props;
     const dateTimeFilterClass = cast.DateTime?.Filter ?? defaultCast.DateTime.Filter;
-    const { Paper, TextField } = componentsSub.use();
+    const { Paper, TextField } = globalThis.typesComponents;
 
     return (<Paper data-testid={"filter-" + dataKey} className={dateTimeFilterClass}>
       <TextField
